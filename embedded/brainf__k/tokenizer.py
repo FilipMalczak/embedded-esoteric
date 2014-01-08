@@ -1,4 +1,4 @@
-from embedded.brainf__k.utils import DummyTicker
+from embedded.utils.ticker import DummyTicker
 
 def tokenizer(code, allowed, ticker=None):
     '''

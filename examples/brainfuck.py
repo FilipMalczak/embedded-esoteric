@@ -3,7 +3,7 @@
 import traceback
 import sys
 from embedded.brainf__k.interpreters import BrainfuckInterpreter
-from embedded.brainf__k.utils import Ticker
+from embedded.utils.ticker import Ticker
 
 
 hello_world = '''++++++++++

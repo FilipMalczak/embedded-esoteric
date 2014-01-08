@@ -28,19 +28,3 @@ class GrammarInterface:
     #fill it with equivalent of '[' and ']' from classic dialect (in that order)
     loop_start_char = ""
     loop_end_char = ""
-
-class TickerInterface:
-    '''
-    Little class, useful while debugging brainf__k code.
-    It counts "ticks", which are calls to "tick" method.
-    '''
-
-    def tick(self):
-        '''
-        Increase internal counter
-        '''
-
-    def get_ticks(self):
-        '''
-        Return internal counter value
-        '''

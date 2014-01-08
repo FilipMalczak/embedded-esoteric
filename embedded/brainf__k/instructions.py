@@ -1,4 +1,4 @@
-from embedded.brainf__k.exceptions import Brainf__kSyntaxError
+from embedded.exceptions import Brainf__kSyntaxError
 from embedded.brainf__k.interfaces import InstructionInterface
 
 class IncPointer(InstructionInterface):

@@ -1,9 +1,13 @@
 from embedded.brainf__k.interfaces import GrammarInterface
 from embedded.brainf__k.jit import JITCompiler
-from embedded.brainf__k.utils import Brainf__kRuntime
+from embedded.brainf__k.runtime import Brainf__kRuntime
+from embedded.exceptions import AbstractMethodException
 
 
 class AbstractBrainf__kInterpreter:
+    def grammar(self):
+        raise AbstractMethodException()
+
     def execute(self, code, runtime=None, ticker=None):
         '''
         code is string with brainf__k code

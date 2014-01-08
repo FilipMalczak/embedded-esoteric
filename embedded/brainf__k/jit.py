@@ -1,6 +1,5 @@
 from embedded.brainf__k.tokenizer import tokenizer
 
-
 class JITCompiler:
     def __init__(self, grammar):
         self.grammar = grammar
