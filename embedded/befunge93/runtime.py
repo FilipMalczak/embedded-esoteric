@@ -54,21 +54,21 @@ class CyclicSpace:
         self.position = x+dx, y+dy
 
     def active_cell(self):
-        return self._data[self.position]
+        return self[self.position]
 
     def __str__(self):
-        return ("-"*(self.columns+2)) + "\n" + \
+        return "-"+ ("".join("|" if self.position[0]==x else "-" for x in range(self.columns))) + "-\n" + \
                "\n".join(
-                    "|" +\
+                   ("=" if y==self.position[1] else "|") +\
                     "".join( self[x, y]
                              if x in self._data[y]
                              else " "
                              for x in range(self.columns)
                     ) + \
-                    "|"
+                    ("=" if y==self.position[1] else "|")
                     for y in range(self.rows)
                 ) + \
-                "\n"+ ("-"*(self.columns+2))
+                "\n"+ "-"+ ("".join("|" if self.position[0]==x else "-" for x in range(self.columns))) + "-"
 
     def __repr__(self):
         return "< %s: data: %r >" % (
@@ -87,9 +87,8 @@ class Runtime:
         if space is None:
             space = CyclicSpace()
         if stack is None:
-            stack = array()
+            stack = array("B")
         self.space = space
         self.stack = stack
         self.stdout = stdout
         self.stdin = stdin
-

@@ -84,4 +84,39 @@ def swap(runtime):
 def pop(runtime):
     runtime.stack.pop()
 
-#TODO: IO operations and below on english wiki
+def print_int(runtime):
+    a = runtime.stack.pop()
+    runtime.stdout.write(str(a))
+
+def print_ascii(runtime):
+    a = runtime.stack.pop()
+    runtime.stdout.write(chr(a))
+
+#seriously, who came up with that name? oO
+def trampoline(runtime):
+    runtime.space.move()
+
+def put(runtime):
+    y = runtime.stack.pop()
+    x = runtime.stack.pop()
+    v = runtime.stack.pop()
+    runtime.space[x, y]=v
+
+def get(runtime):
+    y = runtime.stack.pop()
+    x = runtime.stack.pop()
+    v = runtime.space[x, y]
+    runtime.stack.append(v)
+
+def read_int(runtime):
+    a = int(runtime.stdin.read(1))
+    runtime.stack.append(a)
+
+def read_ascii(runtime):
+    a = ord(runtime.stdin.read(1))
+    runtime.stack.append(a)
+
+def nothing(runtime):
+    pass
+
+

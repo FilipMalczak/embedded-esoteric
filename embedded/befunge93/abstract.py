@@ -32,3 +32,10 @@ class AbstractBefungeInterpreter:
             active = runtime.space.active_cell()
             hook(runtime)
         return  runtime
+
+class AbstractGrammar(GrammarInterface):
+    def digit_to_number(self, digit_char: str) -> int:
+        return int(digit_char)
+
+    def instruction_for_char(self, char: str) -> callable:
+        return type(self).char_to_instruction_dict[char]
